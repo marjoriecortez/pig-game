@@ -13,6 +13,8 @@ const currentScore0 = document.getElementById('current--0');
 const currentScore1 = document.getElementById('current--1');
 
 const rollBtn = document.querySelector('.btn--roll');
+const holdBtn = document.querySelector('.btn--hold');
+const newBtn = document.querySelector('.btn--new');
 
 // Initial Values
 let scores = [0, 0];
@@ -24,10 +26,23 @@ diceEl.classList.add('hidden');
 
 // Switch Player Function
 const switchPlayer = function () {
+  // Current score should be zero
+  document.getElementById(`current--${activePlayer}`).textContent = 0;
+  currentScore = 0;
+
+  // if player is 0, switch to 1, vice versa
+  if (activePlayer === 0) {
+    activePlayer = 1;
+  } else {
+    activePlayer = 0;
+  }
+
+  // Only one at a time can be the active player
   player0.classList.toggle('.player--active');
   player1.classList.toggle('.player--active');
 };
 
+// Roll button
 rollBtn.addEventListener('click', function () {
   // Random dice roll
   const dice = Math.trunc(Math.random() * 6) + 1;
@@ -48,3 +63,5 @@ rollBtn.addEventListener('click', function () {
     switchPlayer();
   }
 });
+
+// Hold Button
