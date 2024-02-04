@@ -1,5 +1,5 @@
 # Pig Game
-### A simple pig project using JavaScript
+### A simple pig game project using JavaScript
 - Game logic was programmed using JavaScript
 - There are two players in the game, they play by taking turns
 - The current player has to roll a dice, then, they can choose to hold the current score or roll again
